@@ -21,7 +21,7 @@ public class ScopedValuePlay {
 
         User bob = new User("bob");
         boolean result 
-            = ScopedValue.callWhere(user, bob, ScopedValuePlay::handleUser);
+            = ScopedValue.where(user, bob).call(ScopedValuePlay::handleUser);
                         
         // boolean result = handleUser();
         print("Result => " + result);
