@@ -14,7 +14,7 @@ public class ScopedValueRebindPlay {
         print("user is Bound => " + user.isBound());
 
         User bob = new User("bob");
-        ScopedValue.runWhere(user, bob, ScopedValueRebindPlay::handleUser);
+        ScopedValue.where(user, bob).run(ScopedValueRebindPlay::handleUser);
                         
         print("user is Bound => " + user.isBound());
     }
@@ -23,8 +23,7 @@ public class ScopedValueRebindPlay {
         
         print("handleUser - " + user.get());
         
-        ScopedValue.runWhere(user, new User("anonymous"), 
-                ScopedValueRebindPlay::callAsAnonymous);  
+        ScopedValue.where(user, new User("anonymous")).run(ScopedValueRebindPlay::callAsAnonymous);
         
         print("handleUser - " + user.get());
     }
